@@ -44,6 +44,11 @@ class Dante(unittest.TestCase):
         self.assertTrue('Absence Type' in self.driver.find_element(By.ID,
                                                                    'page-header').text)
 
+
+    def test_vacation_remain(self):
+        self.page_dashboard.select_my_vacation_balance()
+        self.assertTrue('My Vacation Balance' in self.page_dashboard.return_my_vacation_balance())
+
     def tearDown(self):
         self.driver.quit()
 
