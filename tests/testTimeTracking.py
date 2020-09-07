@@ -16,7 +16,7 @@ class Dante_TimeTracking(unittest.TestCase):
                 'https://dante.intive.org/Accounts/Authentication/Login')
         else:
             self.driver.get(
-                'https://federico.barderi:Clave-19@dante.intive.org')
+                'https://<user>:<pass>@dante.intive.org')
 
         self.page_timetracking = Page_timeTracking(self.driver)
         self.page_dashboard = Page_dashboard(self.driver)
