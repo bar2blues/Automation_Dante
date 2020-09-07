@@ -23,7 +23,7 @@ class Dante_Login(unittest.TestCase):
 
     @unittest.skipIf('https://<user>:<pass>@dante.intive.org' == True, 'Se saltea el test por NO estar conectado a la VPN de  Intive')
     def test_login(self):
-        self.page_login.login('federico.barderi', 'Clave-19')
+        self.page_login.login('<user>', '<pass>')
 
     def tearDown(self):
         self.driver.quit()
