@@ -16,4 +16,8 @@ class Page_dashboard:
     def return_my_vacation_balance(self):
         return self.driver.find_element(By.XPATH, '//*[@id="page-header"]/a').text
 
+    def select_overtime_bank(self):
+        self.driver.find_element(By.XPATH, '//*[@id="page-content-wrapper"]/div/div[1]/div/div/div[2]/div[4]/a/h2').click()
 
+    def return_overtime_bank(self):
+        return self.driver.find_element(By.XPATH, '//*[@id="page-header"]').text
