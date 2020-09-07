@@ -31,12 +31,15 @@ class Dante(unittest.TestCase):
     def test_login(self):
         self.page_login.login('<user>', '<pass>')
 
-    def test_tab_employees(self):
-        self.page_dashboard.select_tab('Employees')
-        self.page_employees.select_item_tab_employees()
-        self.page_employees.search_by_box('federico')
-        self.assertTrue('Employees' in self.driver.find_element_by_xpath(
-            '//*[@id="page-header"]/a').text)
+    def test_vacation_remain(self):
+        self.page_dashboard.select_my_vacation_balance()
+        self.assertTrue(
+            'My Vacation Balance' in self.page_dashboard.return_my_vacation_balance())
+
+    def test_overtime_bank(self):
+        self.page_dashboard.select_overtime_bank()
+        self.assertTrue(
+            'Overtime Bank' in self.page_dashboard.return_overtime_bank())
 
     def test_tab_timeTracking(self):
         self.page_dashboard.select_tab('Time Tracking')
@@ -44,14 +47,12 @@ class Dante(unittest.TestCase):
         self.assertTrue('Absence Type' in self.driver.find_element(By.ID,
                                                                    'page-header').text)
 
-
-    def test_vacation_remain(self):
-        self.page_dashboard.select_my_vacation_balance()
-        self.assertTrue('My Vacation Balance' in self.page_dashboard.return_my_vacation_balance())
-
-    def test_overtime_bank(self):
-        self.page_dashboard.select_overtime_bank()
-        self.assertTrue('Overtime Bank' in self.page_dashboard.return_overtime_bank())
+    def test_tab_employees(self):
+        self.page_dashboard.select_tab('Employees')
+        self.page_employees.select_item_tab_employees()
+        self.page_employees.search_by_box('federico')
+        self.assertTrue('Employees' in self.driver.find_element_by_xpath(
+            '//*[@id="page-header"]/a').text)
 
     def tearDown(self):
         self.driver.quit()
