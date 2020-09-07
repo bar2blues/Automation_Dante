@@ -29,5 +29,11 @@ class Dante_TimeTracking(unittest.TestCase):
         self.assertTrue('Absence Type' in self.driver.find_element(By.ID,
                                                                    'page-header').text)
 
+    def test_tab_timeTracking_my_report(self):
+        self.page_dashboard.select_tab('Time Tracking')
+        self.page_timetracking.select_item_tab_timeTracking('My Report')
+        self.assertTrue('Time Report' in self.driver.find_element(By.XPATH,
+                                                                  '//*[@id="page-header"]/span/span[1]').text)
+
     def tearDown(self):
         self.driver.quit()
