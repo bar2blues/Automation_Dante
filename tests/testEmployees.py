@@ -8,6 +8,7 @@ class Dante_Employees(unittest.TestCase):
 
     def setUp(self):
         optionsChrome = Options()
+        optionsChrome.add_argument('headless')
         self.url = 'https://dante.intive.org/Accounts/Authentication/Login'
         self.driver = webdriver.Chrome('chromedriver.exe', options=optionsChrome)
         if self.url == True:
