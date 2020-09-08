@@ -35,5 +35,20 @@ class Dante_TimeTracking(unittest.TestCase):
         self.assertTrue('Time Report' in self.driver.find_element(By.XPATH,
                                                                   '//*[@id="page-header"]/span/span[1]').text)
 
+    def test_tab_timeTracking_my_vacation(self):
+        self.page_dashboard.select_tab('Time Tracking')
+        self.page_timetracking.select_item_tab_timeTracking('My Vacation')
+        self.assertTrue('My Vacation Balance' in self.page_dashboard.return_my_vacation_balance())
+
+    def test_tab_timeTracking_team_calendar(self):
+        self.page_dashboard.select_tab('Time Tracking')
+        self.page_timetracking.select_item_tab_timeTracking('Team Calendar')
+        self.assertTrue('Team Calendar' in self.driver.find_element(By.XPATH, '//*[@id="page-header"]').text)
+
+    def test_tab_timeTracking_overtime_bank(self):
+        self.page_dashboard.select_tab('Time Tracking')
+        self.page_timetracking.select_item_tab_timeTracking('Overtime Bank')
+        self.assertTrue('Overtime Bank' in self.driver.find_element(By.XPATH, '//*[@id="page-header"]').text)
+
     def tearDown(self):
         self.driver.quit()
