@@ -22,12 +22,17 @@ class Dante_Employees(unittest.TestCase):
         self.page_dashboard = Page_dashboard(self.driver)
         self.driver.implicitly_wait(5)
 
-    def test_tab_employees(self):
+    def test_tab_employees_employees(self):
         self.page_dashboard.select_tab('Employees')
         self.page_employees.select_item_tab_employees()
         self.page_employees.search_by_box('federico')
         self.assertTrue('Employees' in self.driver.find_element_by_xpath(
             '//*[@id="page-header"]/a').text)
+
+    def test_tab_employees_my_resume(self):
+        self.page_dashboard.select_tab('Employees')
+        self.page_employees.select_item_tab_my_resume()
+        self.assertTrue('My Resume' in self.driver.find_element_by_xpath('//*[@id="resume-header"]/div[1]/h3').text)
 
     def tearDown(self):
         self.driver.quit()

@@ -10,10 +10,10 @@ class Page_employees:
         self.search_box = (By.NAME, 'search')
         self.search_icon_button = (By.XPATH,
                                    '/html/body/div/div[1]/div[2]/div/nav/div/div[1]/div/div/span')
+        self.item_my_resume = (By.XPATH, '//*[@id="main-menu"]/ul[1]/li[3]/ul/li[3]/a')
 
     def select_item_tab_employees(self):
-        select_item = self.driver.find_element(*self.item_employees)
-        select_item.click()
+        self.driver.find_element(*self.item_employees).click()
 
     def search_by_box(self, name):
         box_employees = self.driver.find_element(*self.search_box)
@@ -21,3 +21,8 @@ class Page_employees:
         search_employees_icon_button = self.driver.find_element(
             *self.search_icon_button)
         search_employees_icon_button.click()
+
+    def select_item_tab_my_resume(self):
+        self.driver.find_element(*self.item_my_resume).click()
+
+
