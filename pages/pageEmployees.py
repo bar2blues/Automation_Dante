@@ -12,7 +12,7 @@ class Page_employees:
                                    '/html/body/div/div[1]/div[2]/div/nav/div/div[1]/div/div/span')
         self.item_my_resume = (By.XPATH, '//*[@id="main-menu"]/ul[1]/li[3]/ul/li[3]/a')
         self.close_popup_resume = (By.XPATH, '//*[@id="suggestedSkillsModal"]/div/div/div/div[1]/button')
-
+        self.item_my_surveys = (By.XPATH, '//*[@id="main-menu"]/ul[1]/li[3]/ul/li[6]/a')
 
     def select_item_tab_employees(self):
         self.driver.find_element(*self.item_employees).click()
@@ -27,6 +27,9 @@ class Page_employees:
     def select_item_tab_my_resume(self):
         self.driver.find_element(*self.item_my_resume).click()
         self.driver.find_element(*self.close_popup_resume).click()
+
+    def select_item_tab_my_surveys(self):
+        self.driver.find_element(*self.item_my_surveys).click()
 
 
 

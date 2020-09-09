@@ -34,5 +34,10 @@ class Dante_Employees(unittest.TestCase):
         self.page_employees.select_item_tab_my_resume()
         self.assertTrue('My Resume' in self.driver.find_element_by_xpath('//*[@id="resume-header"]/div[1]/h3').text)
 
+    def test_tab_employees_my_surveys(self):
+        self.page_dashboard.select_tab('Employees')
+        self.page_employees.select_item_tab_my_surveys()
+        self.assertTrue('My Surveys' in self.driver.find_element_by_xpath('//*[@id="page-header"]').text)
+
     def tearDown(self):
         self.driver.quit()
