@@ -44,6 +44,10 @@ class Dante_Employees(unittest.TestCase):
         self.page_employees.select_item_tab_org_units()
         self.assertTrue('Org Units' in self.driver.find_element_by_xpath('//*[@id="page-header"]').text)
 
+    def test_tab_employees_org_chart(self):
+        self.page_dashboard.select_tab('Employees')
+        self.page_employees.select_item_tab_org_chart()
+        self.assertTrue('Org Chart' in self.driver.find_element_by_xpath('//*[@id="page-header"]').text)
 
     def tearDown(self):
         self.driver.quit()
