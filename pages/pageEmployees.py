@@ -15,7 +15,7 @@ class Page_employees:
                                    '/html/body/div/div[1]/div[2]/div/nav/div/div[1]/div/div/span')
         self.item_org_units = (By.XPATH, '//*[@id="main-menu"]/ul[1]/li[3]/ul/li[9]/a')
         self.item_org_chart = (By.XPATH, '//*[@id="main-menu"]/ul[1]/li[3]/ul/li[10]/a')
-
+        self.item_org_chart_director = (By.XPATH, '//*[@id="orgChart"]/div/table/tbody/tr[4]/td[9]/table/tbody/tr[4]/td[1]/table/tbody/tr[1]/td/div/table/tbody/tr[1]/td[2]/div')
 
     def select_item_tab_my_resume(self):
         self.driver.find_element(*self.item_my_resume).click()
@@ -40,5 +40,6 @@ class Page_employees:
     def select_item_tab_org_chart(self):
         self.driver.find_element(*self.item_org_chart).click()
 
-
+    def select_item_tab_org_chart_director(self):
+        self.driver.find_element(*self.item_org_chart_director).click()
 
