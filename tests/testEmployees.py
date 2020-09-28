@@ -35,9 +35,17 @@ class Dante_Employees(unittest.TestCase):
     def test_tab_employees_employees(self):
         self.page_dashboard.select_tab('Employees')
         self.page_employees.select_item_tab_employees()
-        self.page_employees.search_by_box('federico')
         self.assertTrue('Employees' in self.driver.find_element_by_xpath(
             '//*[@id="page-header"]/a').text)
+
+    def test_search_by_name(self):
+        self.page_dashboard.select_tab('Employees')
+        self.page_employees.select_item_tab_employees()
+        self.page_employees.search_by_box('federico')
+
+        for i in range(1, 5):
+            element = self.driver.find_element_by_xpath("/html/body/div/div[2]/div/div/div/div[1]/table/tbody/tr["+str(i)+"]/td[1]/span").text
+            self.assertTrue('Federico' in element,'Los resultados no coinciden con la busqueda')
 
     def test_tab_employees_org_units(self):
         self.page_dashboard.select_tab('Employees')
@@ -57,7 +65,6 @@ class Dante_Employees(unittest.TestCase):
                         self.driver.find_element_by_xpath(
                             '//*[@id="common-dialog-show-model-useremployeehubviewmodel"]/div[2]/div/div[2]/div/div[1]/div/div[2]/div[1]').text)
 
-    # CLOSE
 
     def tearDown(self):
         self.driver.quit()
