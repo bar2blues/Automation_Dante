@@ -7,4 +7,4 @@ class Page_system:
         self.item_tab_system = (By.LINK_TEXT, "Calendars")
 
     def select_item_tab_calendars(self):
-        self.driver.find_element(*self.select_item_tab_calendars).click()
+        self.driver.find_element(*self.item_tab_system).click()
