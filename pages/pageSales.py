@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-class Page_Sales:
+class Page_sales:
 
     def __init__(self, driver):
         self.driver = driver

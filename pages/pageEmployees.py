@@ -17,6 +17,7 @@ class Page_employees:
         self.item_org_chart = (By.XPATH, '//*[@id="main-menu"]/ul[1]/li[3]/ul/li[10]/a')
         self.item_org_chart_director = (By.XPATH, '//*[@id="orgChart"]/div/table/tbody/tr[4]/td[9]/table/tbody/tr[4]/td[1]/table/tbody/tr[1]/td/div/table/tbody/tr[1]/td[2]/div')
 
+
     def select_item_tab_my_resume(self):
         self.driver.find_element(*self.item_my_resume).click()
         self.driver.find_element(*self.close_popup_resume).click()
