@@ -3,6 +3,7 @@ from tests.testDashboard import *
 from tests.testTimeTracking import *
 from tests.testEmployees import *
 from tests.testSales import *
+from tests.testLegal import *
 
 
 loader = unittest.TestLoader()
@@ -13,6 +14,7 @@ suite.addTests(loader.loadTestsFromModule(Dante_Dashboard))
 suite.addTests(loader.loadTestsFromModule(Dante_TimeTracking))
 suite.addTests(loader.loadTestsFromModule(Dante_Employees))
 suite.addTest(loader.loadTestsFromModule(Dante_Sales))
+suite.addTest(loader.loadTestsFromModule(Dante_Legal))
 
 runner = unittest.TextTestRunner(verbosity=3)
 result = runner.run(suite)

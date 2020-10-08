@@ -1,10 +1,10 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from pages.pageSales import *
+from pages.pageLegal import *
 from pages.pageDashboard import *
 import unittest
 
-class Dante_Sales(unittest.TestCase):
+class Dante_Legal(unittest.TestCase):
     def setUp(self):
         optionsChrome = Options()
         #optionsChrome.add_argument('headless')
@@ -17,15 +17,14 @@ class Dante_Sales(unittest.TestCase):
             self.driver.get(
                 'https://federico.barderi:Clave-20@dante.intive.org')
 
-        self.page_sales = Page_sales(self.driver)
+        self.page_legal = Page_legal(self.driver)
         self.page_dashboard = Page_dashboard(self.driver)
         self.driver.implicitly_wait(5)
 
-    def test_tab_sales_customers(self):
-        self.page_dashboard.select_tab('Sales')
-        self.page_sales.select_item_tab_customers()
-        self.assertTrue('Customers' in self.driver.find_element_by_xpath(
-            '//*[@id="page-header"]').text)
+    def test_tab_legal_dpac(self):
+        self.page_dashboard.select_tab('Legal')
+        self.page_legal.select_item_tab_dpac()
+        self.assertTrue('Data Processing Agreement Consents' in self.driver.find_element_by_id('page-header').text)
 
     def tearDown(self):
         self.driver.quit()
