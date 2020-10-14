@@ -19,5 +19,6 @@ suite.addTest(loader.loadTestsFromModule(Dante_Legal))
 suite.addTest(loader.loadTestsFromModule(Dante_System))
 
 runner = unittest.TextTestRunner(verbosity=3)
+runner = HTMLTestRunner(output="my_reports")
 result = runner.run(suite)
 
